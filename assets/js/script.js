@@ -2,7 +2,7 @@ $(function(){
 
   //Funzioni
   //funzione per stampare la lista dei gatti in html
-  const listCatGenerator = (catColor, name, ...ribbon) => {
+  const printOutput = (catColor, name, ...ribbon) => {
     //variabile per aggiungere fiocco in htlm
     let ribbonTarget = "";
     if(ribbon.length > 0){
@@ -66,7 +66,7 @@ $(function(){
 
   //ciclo forEach per stampare i gattini, con fontawesome del proprio colore, e il nome
   cats.forEach((cat) => {
-    $('#oggetto-1 ul').append(listCatGenerator(cat.color, cat.name));
+    $('#oggetto-1 ul').append(printOutput(cat.color, cat.name));
   })
 
 //-------------------Fine Milestone 1-------------------
@@ -83,7 +83,7 @@ $(function(){
 
   const newCats = cats.map((cat) => {
 
-    //creo variabili per le proprietàda color e opacity aggiungere al ribbon
+    //creo variabili per le proprietà color e opacity da aggiungere al ribbon
     let color = (cat.gender === 'male') ? azure : pink;
     let opacity = cat.age / 10; //uso la proprietà age di cats per opacità colore 
     return {
@@ -97,7 +97,6 @@ $(function(){
   });
 
   //divido il nuovo array creato in maschi e femmine utilizzando filter
-
   const maleCats = newCats.filter((cat) => {
     return cat.gender === 'male';
   });
@@ -108,35 +107,36 @@ $(function(){
 
   //stampo in html i due array creati utilizzando la funzione 
   femaleCats.forEach((cat) => {
-    $('#oggetto-2-female ul').append(listCatGenerator(cat.color, cat.name, cat.ribbon.color, cat.ribbon.opacity));
+    $('#oggetto-2-female ul').append(printOutput(cat.color, cat.name, cat.ribbon.color, cat.ribbon.opacity));
   });
 
   maleCats.forEach((cat) => {
-    $('#oggetto-2-male ul').append(listCatGenerator(cat.color, cat.name, cat.ribbon.color, cat.ribbon.opacity));
+    $('#oggetto-2-male ul').append(printOutput(cat.color, cat.name, cat.ribbon.color, cat.ribbon.opacity));
   });
 
 //-------------------Fine Milestone 2-------------------
 
+
 //-------------------Milestone 3-------------------
-  //Creare un nuovo array con prima tutti i gattini femmina e poi tutti i gattini maschio, inserendo solamente nome e colore e colore e opacità del fiocco per ogni gatto.
+//Creare un nuovo array con prima tutti i gattini femmina e poi tutti i gattini maschio, inserendo solamente nome e colore e colore e opacità del fiocco per ogni gatto.
 
   //utilizzo spread per unire i due array con gattini femmina e gattini maschio
   const orderedCats = [...femaleCats, ...maleCats];
 
   //genero nuovo array con nome, cognome e ribbon usando map
   const finalCats = orderedCats.map((cat) =>{
-    //destrutturo il nuovo array tenendo solamente le proprietà che mi interessano
+    //destrutturo il nuovo array per conservare solamente le proprietà che mi interessano
     const {name, color, ribbon} = cat;
 
     //stampo in html usando la funzione
-    $('#oggetto-3 ul').append(listCatGenerator(color, name, ribbon.color, ribbon.opacity));
+    $('#oggetto-3 ul').append(printOutput(color, name, ribbon.color, ribbon.opacity));
     
     return {name, color, ribbon}
 
-  })
+  });
   
   console.log(finalCats);
   
-  
+//-------------------Fine Milestone 3-------------------
 
 });

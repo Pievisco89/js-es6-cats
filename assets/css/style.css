@@ -7,45 +7,49 @@
 body{
   background-image: url('../img/sfondo-gattini.jpg');
   background-size: cover;
+  background-position: center;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color: rgb(70, 14, 21);
 }
 
 #container{
-  width: 500px;
+  width: 600px;
   margin: auto;
   padding-top: 50px;
 }
 
 section{
-  background-color: rgb(247, 249, 252);
+  background-color: rgba(0, 0, 0, 0.1);
   padding: 20px;
   text-align: center;
+  font-size: 25px;
   border-radius: 10px;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.6);
   margin-bottom: 30px;
 }
 
 #oggetto-2-female{
-  background-color: rgb(252, 207, 215);
+  background-color: rgb(252, 216, 223);
 }
 
 #oggetto-2-male{
-  background-color: rgb(166, 247, 247);
+  background-color: rgb(178, 250, 250);
 }
 
 section h2{
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 section ul li{
   display: flex;
   justify-content: space-evenly;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 section ul li i{
   background-color: rgb(249, 252, 250);
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.8);
-  padding: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.8);
+  padding: 15px;
   border-radius: 50%;
 }
 
