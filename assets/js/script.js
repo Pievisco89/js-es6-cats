@@ -117,7 +117,26 @@ $(function(){
 
 //-------------------Fine Milestone 2-------------------
 
+//-------------------Milestone 3-------------------
+  //Creare un nuovo array con prima tutti i gattini femmina e poi tutti i gattini maschio, inserendo solamente nome e colore e colore e opacità del fiocco per ogni gatto.
 
+  //utilizzo spread per unire i due array con gattini femmina e gattini maschio
+  const orderedCats = [...femaleCats, ...maleCats];
 
+  //genero nuovo array con nome, cognome e ribbon usando map
+  const finalCats = orderedCats.map((cat) =>{
+    //destrutturo il nuovo array tenendo solamente le proprietà che mi interessano
+    const {name, color, ribbon} = cat;
+
+    //stampo in html usando la funzione
+    $('#oggetto-3 ul').append(listCatGenerator(color, name, ribbon.color, ribbon.opacity));
+    
+    return {name, color, ribbon}
+
+  })
+  
+  console.log(finalCats);
+  
+  
 
 });
